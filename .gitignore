@@ -12,3 +12,6 @@ ass
 hs_err_pid*
 
 bin
+
+.metadata
+.recommenders
