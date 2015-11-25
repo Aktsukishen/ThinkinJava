@@ -1,7 +1,21 @@
 package com.chapter15.learning.l_1502_s;
 
+/**
+ * 
+ * 
+ * @author li.shensong
+ *
+ * @param <T>
+ */
 public class LinkedStack<T> {
 
+	/**
+	 * 
+	 * 节点
+	 * @author li.shensong
+	 *
+	 * @param <U>
+	 */
 	class Node<U>{
 		U item;
 		Node<U> next;
