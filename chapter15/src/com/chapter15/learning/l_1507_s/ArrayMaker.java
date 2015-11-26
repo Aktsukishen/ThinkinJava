@@ -10,8 +10,10 @@ public class ArrayMaker<T> {
 	public ArrayMaker(Class<T> kind){this.kind=kind;}
 	
 	@SuppressWarnings("unchecked")
-	T[] create(int size){
-		return (T[])Array.newInstance(kind, size);
+	T[] create(int size) {
+//		T t=kind.newInstance();此处直接返回类型T,并没有进行数据转型
+		return (T[])Array.newInstance(kind, size);//此处先换入kind(object)然后在进行类型转换，故最终转换为Null
+		
 	}
 	
 	public static void main(String[]args){
