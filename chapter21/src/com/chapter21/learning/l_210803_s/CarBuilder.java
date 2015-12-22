@@ -31,7 +31,7 @@ class Car{
 		this.wheels=true;
 	}
 	public synchronized String toString(){
-		return "Car "+id+"["+" engine:"+engine+" drivenTrain:"+driveTrain+" wheels:"+wheels+"]";
+		return "Car "+id+" ["+" engine:"+engine+" drivenTrain:"+driveTrain+" wheels:"+wheels+" ]";
 	}
 }
 
@@ -75,9 +75,11 @@ class Assembler implements Runnable{
 			while(!Thread.interrupted()){
 				//阻塞直至其可用
 				car=chassisQueue.take();
+				
 				robotPool.hire(EngineRobot.class, this);
 				robotPool.hire(DriveTrainRobot.class, this);
 				robotPool.hire(WheelRobot.class, this);
+				
 				barrier.await();
 				finishQueue.add(car);
 			}
