@@ -1,0 +1,23 @@
+1 package com.chapter18.learning.l_1806_s;
+2 
+3 import java.io.BufferedReader;
+4 import java.io.IOException;
+5 import java.io.PrintWriter;
+6 import java.io.StringReader;
+7 
+8 public class FileOutputShortcut {
+9 	static String file="resource/FileOutputShortcut.txt";
+10 	static String test="src/com/chapter18/learning/l_1806_s/FileOutputShortcut.java";
+11 	public static void main(String[] args) throws IOException {
+12 		BufferedReader in=new BufferedReader(new StringReader(BufferedInputFile.read(test)));
+13 		PrintWriter out=new PrintWriter(file);//快速的文件输出类，再也不需要多次new装饰器类了
+14 		int lineCount=1;
+15 		String s;
+16 		while((s=in.readLine())!=null){
+17 			out.println(lineCount+++" "+s);
+18 		}
+19 		out.close();
+20 		System.out.println(BufferedInputFile.read(test));
+21 	}
+22 
+23 }

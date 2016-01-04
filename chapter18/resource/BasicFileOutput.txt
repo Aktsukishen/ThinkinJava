@@ -1,0 +1,23 @@
+1 package com.chapter18.learning.l_1806_s;
+2 
+3 import java.io.BufferedReader;
+4 import java.io.BufferedWriter;
+5 import java.io.FileWriter;
+6 import java.io.IOException;
+7 import java.io.PrintWriter;
+8 import java.io.StringReader;
+9 
+10 public class BasicFileOutput {
+11 	static String file="resource/BasicFileOutput.txt";
+12 	static String test="src/com/chapter18/learning/l_1806_s/BasicFileOutput.java";
+13 	public static void main(String[]args) throws IOException{
+14 		BufferedReader in=new BufferedReader(new StringReader(BufferedInputFile.read(test)));
+15 		PrintWriter out=new PrintWriter(new BufferedWriter(new FileWriter(file)));
+16 		int fileCount=1;
+17 		String s;
+18 		while((s=in.readLine())!=null)
+19 			out.println(fileCount++ +" "+s);
+20 		out.close();
+21 		System.out.println(BufferedInputFile.read(file));
+22 	}
+23 }
