@@ -23,6 +23,7 @@ import java.util.TreeSet;
  * HashMap和HashSet都提供的最快的查找技术
  * TreeMap和TreeSet都是按照比较结果的升序进行数据存储
  * LinkedHashMap和LinkedHashSet按照数据添加的顺序来保存数据
+ * 它们都有共同的祖先：AbstractCollection
  * 
  * @author li.shensong
  *
