@@ -6,7 +6,7 @@ public class Tester<C> {
 	public static int fieldWidth=8;
 	public static TestParam[] defaultParams=TestParam.array(10,5000,100,5000,1000,5000,10000,500);
 	//Override this to modify pre-test initialization
-	protected C initalize(int size){
+	protected C initialize(int size){
 		return container;
 	}
 	protected C container;
@@ -62,8 +62,8 @@ public class Tester<C> {
 		System.out.println(head);
 		//print column headers
 		System.out.format(sizeField, "size");
-		for(Test test:tests){
-			System.out.println(stringFiled(),test.name);
+		for(Test<C> test:tests){
+			System.out.format(stringField(),test.name);
 		}
 		System.out.println();
 	}
@@ -74,7 +74,7 @@ public class Tester<C> {
 		for(TestParam param:paramList){
 			System.out.format(sizeField, param.size);
 			for(Test<C> test:tests){
-				C container=initalize(param.size);
+				C container=initialize(param.size);
 				long start=System.nanoTime();
 				//call the overriden method
 				int reps=test.test(container, param);
@@ -86,8 +86,4 @@ public class Tester<C> {
 		}
 	}
 	
-	public static void main(String[] args) {
-
-	}
-
 }
