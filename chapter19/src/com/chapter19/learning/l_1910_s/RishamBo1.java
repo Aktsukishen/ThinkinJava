@@ -1,7 +1,7 @@
 package com.chapter19.learning.l_1910_s;
 
 import static com.chapter19.learning.l_1910_s.Outcome.DRAW;
-import static com.chapter19.learning.l_1910_s.Outcome.LOOSE;
+import static com.chapter19.learning.l_1910_s.Outcome.LOSE;
 import static com.chapter19.learning.l_1910_s.Outcome.WIN;
 
 import java.util.Random;
@@ -17,7 +17,7 @@ interface Item {
 class Paper implements Item{
 	public Outcome compete(Item it) {return it.eval(this);}
 	public Outcome eval(Paper p) {return DRAW;}
-	public Outcome eval(Scissors s) {return LOOSE;}
+	public Outcome eval(Scissors s) {return LOSE;}
 	public Outcome eval(Rock r) {return WIN;}
 	public String toString(){ return "Paper";}
 }
@@ -27,14 +27,14 @@ class Scissors implements Item{
 	public Outcome compete(Item it) {return it.eval(this);}
 	public Outcome eval(Paper p) {return WIN;}
 	public Outcome eval(Scissors s) {return DRAW;}
-	public Outcome eval(Rock r) {return LOOSE;}
+	public Outcome eval(Rock r) {return LOSE;}
 	public String toString(){ return "Scissors";}
 }
 
 //石头
 class Rock implements Item{
 	public Outcome compete(Item it) {return it.eval(this);}
-	public Outcome eval(Paper p) {return LOOSE;}
+	public Outcome eval(Paper p) {return LOSE;}
 	public Outcome eval(Scissors s) {return WIN;}
 	public Outcome eval(Rock r) {return DRAW;}
 	public String toString(){ return "Rock";}
